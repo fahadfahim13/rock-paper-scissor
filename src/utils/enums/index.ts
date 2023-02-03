@@ -1,0 +1,12 @@
+export enum PAGE_OPPONENT_TYPE {
+    COMPUTER = 'COMPUTER',
+    HUMAN = 'HUMAN',
+    HUMAN_NAMES = 'HUMAN_NAMES',
+    SAVED_GAMES = 'SAVED_GAMES',
+}
+
+export enum RPS_TYPE {
+    ROCK = 'ROCK',
+    PAPER = 'PAPER',
+    SCISSOR = 'SCISSOR'
+}

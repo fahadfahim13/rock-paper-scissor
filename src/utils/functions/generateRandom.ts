@@ -1,4 +1,4 @@
-import { RPS_TYPE } from "../constants";
+import { RPS_TYPE } from "../enums";
 
 export const getComputerRandomChoice = (): RPS_TYPE | string => {
     const randomNumber = Math.floor(Math.random() * 3);

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Card, Col, Row } from 'antd';
-import { OPPONENT_TYPE } from '../../utils/constants';
+import { Button, Card, Col, Divider, Row } from 'antd';
+import { PAGE_OPPONENT_TYPE } from '../../utils/enums';
 
 const SelectOptionType = (props: {setUserChoice: (val: string) => void}) => {
     const { setUserChoice } = props;
     return (
-        <Row gutter={16} style={{ marginTop: '15%' }}>
+        <div style={{ marginTop: '15%' }}>
+        <Button onClick={() => setUserChoice(PAGE_OPPONENT_TYPE.SAVED_GAMES)}>Saved Games</Button>
+        <Divider orientation='left' />
+        <Row gutter={16}>
             <Col className="gutter-row" span={2}></Col>
             <Col className="gutter-row" span={10}>
                 <div>
-                    <Card style={{ cursor: 'pointer', backgroundColor: '#13c2c2', color: 'white' }} onClick={() => setUserChoice(OPPONENT_TYPE.HUMAN_NAMES)}>
+                    <Card style={{ cursor: 'pointer', backgroundColor: '#13c2c2', color: 'white' }} onClick={() => setUserChoice(PAGE_OPPONENT_TYPE.HUMAN_NAMES)}>
                     <p></p>
                     <p>Play With Human</p>
                     <p></p>
@@ -18,7 +21,7 @@ const SelectOptionType = (props: {setUserChoice: (val: string) => void}) => {
             </Col>
             <Col className="gutter-row" span={10}>
                 <div>
-                    <Card style={{ cursor: 'pointer', backgroundColor: '#73d13d', color: 'white' }} onClick={() => setUserChoice(OPPONENT_TYPE.COMPUTER)}>
+                    <Card style={{ cursor: 'pointer', backgroundColor: '#73d13d', color: 'white' }} onClick={() => setUserChoice(PAGE_OPPONENT_TYPE.COMPUTER)}>
                     <p></p>
                     <p>Play With Computer</p>
                     <p></p>
@@ -27,6 +30,7 @@ const SelectOptionType = (props: {setUserChoice: (val: string) => void}) => {
             </Col>
             <Col className="gutter-row" span={2}></Col>
         </Row>
+        </div>
     );
 }
 

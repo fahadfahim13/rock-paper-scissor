@@ -3,19 +3,19 @@ import { Card } from 'antd';
 import Paper from './paper.png';
 import Rock from './rock-left.png';
 import Scissor from './scissor-left.png';
-import { OPPONENT_TYPE, RPS_TYPE } from '../../utils/constants';
+import { PAGE_OPPONENT_TYPE, RPS_TYPE } from '../../utils/enums';
 
 interface CardProps {
   selectedImg: string;
   name: string;
-  opponentType?: OPPONENT_TYPE.HUMAN | OPPONENT_TYPE.COMPUTER;
+  opponentType?: PAGE_OPPONENT_TYPE.HUMAN | PAGE_OPPONENT_TYPE.COMPUTER;
   setSelectedImg: (val: string) => void;
 }
 
 const SelectionCards = (props: CardProps) => {
   const logoStyle = { width: '80px', cursor: 'pointer' };
   const imgStyle = { width: '100%' };
-  const { selectedImg, setSelectedImg, name, opponentType = OPPONENT_TYPE.HUMAN } = props;
+  const { selectedImg, setSelectedImg, name, opponentType = PAGE_OPPONENT_TYPE.HUMAN } = props;
 
   if (selectedImg === RPS_TYPE.ROCK){
     return (
@@ -42,7 +42,7 @@ const SelectionCards = (props: CardProps) => {
     return (
       <div>
       <h3>{name}</h3>
-      <Card hoverable loading={opponentType === OPPONENT_TYPE.COMPUTER}>
+      <Card hoverable loading={opponentType === PAGE_OPPONENT_TYPE.COMPUTER}>
           <p onClick={() => setSelectedImg(RPS_TYPE.ROCK)}>
               <img src={Rock} alt="Rock" style={logoStyle} /> <br />
               Rock

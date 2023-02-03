@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Divider, Input, Row } from 'antd';
-import { OPPONENT_TYPE } from '../../utils/constants';
+import { PAGE_OPPONENT_TYPE } from '../../utils/enums';
 
 const PlayerNames = (props: { setUserChoice: (val: string) => void; setFirstName: (val: string) => void; setSecondName: (val: string) => void; }) => {
     const { setUserChoice, setFirstName, setSecondName } = props;
+
+    const onOk = () => {
+        setUserChoice(PAGE_OPPONENT_TYPE.HUMAN);
+    }
+
     return (
         <div>
 
@@ -33,7 +38,7 @@ const PlayerNames = (props: { setUserChoice: (val: string) => void; setFirstName
         <Row>
             <Col span={8}></Col>
             <Col span={8}>
-                <Button type='primary' onClick={() => setUserChoice(OPPONENT_TYPE.HUMAN)}>Ok</Button>
+                <Button type='primary' onClick={onOk}>Ok</Button>
             </Col>
             <Col span={8}></Col>
         </Row>
