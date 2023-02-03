@@ -1,4 +1,4 @@
-import { RPS_TYPE } from "./constants";
+import { RPS_TYPE } from "../constants";
 
 export const getResult = (firstData: RPS_TYPE | string, secondData: RPS_TYPE | string): number => {
     if(firstData === secondData) {

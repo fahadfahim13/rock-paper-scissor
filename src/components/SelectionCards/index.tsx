@@ -3,44 +3,46 @@ import { Card } from 'antd';
 import Paper from './paper.png';
 import Rock from './rock-left.png';
 import Scissor from './scissor-left.png';
-import { RPS_TYPE } from '../../utils/constants';
+import { OPPONENT_TYPE, RPS_TYPE } from '../../utils/constants';
 
 interface CardProps {
   selectedImg: string;
   name: string;
+  opponentType?: OPPONENT_TYPE.HUMAN | OPPONENT_TYPE.COMPUTER;
   setSelectedImg: (val: string) => void;
 }
 
 const SelectionCards = (props: CardProps) => {
   const logoStyle = { width: '80px', cursor: 'pointer' };
   const imgStyle = { width: '100%' };
-  const { selectedImg, setSelectedImg, name } = props;
+  const { selectedImg, setSelectedImg, name, opponentType = OPPONENT_TYPE.HUMAN } = props;
 
   if (selectedImg === RPS_TYPE.ROCK){
     return (
-      <Card>
+      <Card hoverable>
           <img src={Rock} alt="Rock" style={imgStyle} /> <br />
           Rock
       </Card>
     );
   } else if (selectedImg === RPS_TYPE.PAPER){
     return (
-      <Card>
+      <Card hoverable>
           <img src={Paper} alt="Paper" style={imgStyle} /> <br />
           Paper
       </Card>
     );
   } else if (selectedImg === RPS_TYPE.SCISSOR){
     return (
-      <Card>
+      <Card hoverable>
           <img src={Scissor} alt="Scissor" style={imgStyle} /> <br />
           Scissor
       </Card>
     );
   } else{
     return (
-      <Card>
-          <h3>{name}</h3>
+      <div>
+      <h3>{name}</h3>
+      <Card hoverable loading={opponentType === OPPONENT_TYPE.COMPUTER}>
           <p onClick={() => setSelectedImg(RPS_TYPE.ROCK)}>
               <img src={Rock} alt="Rock" style={logoStyle} /> <br />
               Rock
@@ -54,6 +56,7 @@ const SelectionCards = (props: CardProps) => {
               Scissor
           </p>
       </Card>
+      </div>
     );
   }
 }
